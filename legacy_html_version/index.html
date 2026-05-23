@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jui Tawde | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Dark Mode Mesh Background -->
+    <div class="dark-mode-mesh">
+        <div class="blob blob-dark-1"></div>
+        <div class="blob blob-dark-2"></div>
+        <div class="blob blob-dark-3"></div>
+    </div>
+
+    <!-- Light Mode Mesh Background -->
+    <div class="light-mode-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- Floating Navbar -->
+    <nav class="floating-nav">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about-me" class="nav-link">About</a>
+        <a href="#toolkit" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Works</a>
+        <a href="#about" class="nav-link">Journey</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Right-side Scanner Bar -->
+    <div class="scanner-bar">
+        <div class="scanner-text scanner-top">SYS_RUNTIME_ <span id="scanner-time">00:00:00</span></div>
+        <div class="scanner-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
+            <div class="dot" data-index="5"></div>
+            <div class="dot" data-index="6"></div>
+        </div>
+        <div class="scanner-text scanner-bottom">SCANNING_ENVIRONMENT...</div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero / About Section -->
+        <section class="panel" id="hero">
+            <div class="panel-content flex-split row-reverse-mobile fade-in">
+                <div class="col-left">
+                    <h1 class="headline">Aspiring <br><span class="italic accent-text">Data Engineer</span></h1>
+                    <br>
+                    <br>
+                    <p class="subheadline">Actively building skills in data science and business thinking to create
+                        impactful, user-focused solutions. Learning to transform complex ideas into smart, analytical,
+                        and practical innovations while working on Frontend.</p>
+                    <div class="cta-group">
+                        <a href="#projects" class="btn primary">View Projects</a>
+                        <button onclick="openCV()" class="btn-cv-access">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-right: 8px;">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            Access CV
+                        </button>
+                    </div>
+                </div>
+                <div class="col-right flex-center">
+                    <div class="profile-card">
+                        <div class="profile-image-container">
+                            <img src="WhatsApp Image 2025-12-21 at 13.49.47 copy 3.jpeg" alt="Jui Tawde" id="profile-img">
+                        </div>
+                        <div class="hello-badge">
+                            <span>Hello,<br>I'm <span class="italic">Jui.</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="panel" id="about-me">
+            <div class="panel-content flex-split fade-in">
+                <div class="col-left" style="flex: 1.1;">
+                    <div class="section-header">
+                        <span class="eyebrow">ABOUT ME</span>
+                        <h2 class="section-title">Who <span class="italic">I Am</span></h2>
+                    </div>
+                    <div class="about-bio-card glass-panel">
+                        <p class="bio-para">My name is <strong>Jui Tawde</strong>, and I am currently pursuing a B.Tech
+                            in Computer Science Engineering at <strong>ITM Skills University, Kharghar</strong>. I have
+                            a strong interest in the fields of <strong>Data Science</strong> and <strong>Business
+                                Technology</strong>, where I aim to bridge the gap between technical solutions and
+                            real-world business needs.</p>
+                        <p class="bio-para">I am deeply enthusiastic about building innovative projects and taking on
+                            leadership roles that allow me to collaborate, solve problems, and create meaningful impact.
+                            I am particularly keen on exploring data science concepts, understanding user interaction,
+                            and analyzing systems from a business perspective to design more effective and user-centric
+                            solutions.</p>
+                        <p class="bio-para">Over time, I have developed a solid foundation by working on projects across
+                            multiple programming languages and technologies, including <span
+                                class="accent-text fw-600">HTML, CSS, C++, Python, JavaScript, and Scratch</span>. These
+                            experiences have helped me cultivate an analytical mindset, strengthen my problem-solving
+                            abilities, and continuously push myself to learn and build more advanced and impactful
+                            projects.</p>
+                    </div>
+                </div>
+                <div class="col-right flex-center" style="flex: 0.9;">
+                    <!-- Identity Constellation Graphic -->
+                    <div class="about-me-graphic-wrapper neon-float"
+                        style="width:100%; max-width:380px; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"
+                            style="width:100%; height:100%; overflow:visible; filter:drop-shadow(0 10px 20px rgba(59,130,246,0.18));">
+                            <defs>
+                                <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.35" />
+                                    <stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0" />
+                                </radialGradient>
+                                <radialGradient id="avatarGrad" cx="40%" cy="35%" r="60%">
+                                    <stop offset="0%" stop-color="#6574ff" />
+                                    <stop offset="100%" stop-color="#3B82F6" />
+                                </radialGradient>
+                            </defs>
+
+                            <!-- Ambient core glow -->
+                            <circle cx="150" cy="150" r="55" fill="url(#coreGlow)">
+                                <animate attributeName="r" values="50;60;50" dur="3.5s" repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- Outer dashed orbit ring -->
+                            <circle cx="150" cy="150" r="118" class="orbit-ring" stroke="var(--border-light)"
+                                stroke-width="1.2" fill="none" stroke-dasharray="5 7" opacity="0.5" />
+
+                            <!-- Inner dashed orbit ring -->
+                            <circle cx="150" cy="150" r="80" class="orbit-ring" stroke="var(--border-light)"
+                                stroke-width="1" fill="none" stroke-dasharray="3 5" opacity="0.35" />
+
+                            <!-- Connector lines to trait nodes -->
+                            <line class="connector-line" x1="150" y1="150" x2="150" y2="32"
+                                stroke="var(--accent-primary)" stroke-width="1" opacity="0.25" />
+                            <line class="connector-line" x1="150" y1="150" x2="268" y2="150" stroke="#ff7eb3"
+                                stroke-width="1" opacity="0.25" />
+                            <line class="connector-line" x1="150" y1="150" x2="150" y2="268" stroke="#2ed8a7"
+                                stroke-width="1" opacity="0.25" />
+                            <line class="connector-line" x1="150" y1="150" x2="32" y2="150" stroke="#ffbd2e"
+                                stroke-width="1" opacity="0.25" />
+
+                            <!-- Trait node: TOP — Data Science -->
+                            <circle class="trait-node-bg" cx="150" cy="32" r="22" fill="var(--bg-panel)"
+                                stroke="var(--accent-primary)" stroke-width="1.5" opacity="0.9" />
+                            <text x="150" y="27" text-anchor="middle" font-size="9" fill="var(--accent-primary)"
+                                font-family="var(--font-mono)" font-weight="600">DATA</text>
+                            <text x="150" y="38" text-anchor="middle" font-size="9" fill="var(--accent-primary)"
+                                font-family="var(--font-mono)" font-weight="600">SCIENCE</text>
+
+                            <!-- Trait node: RIGHT — B.Tech CSE -->
+                            <circle class="trait-node-bg" cx="268" cy="150" r="22" fill="var(--bg-panel)"
+                                stroke="#ff7eb3" stroke-width="1.5" opacity="0.9" />
+                            <text x="268" y="145" text-anchor="middle" font-size="8.5" fill="#ff7eb3"
+                                font-family="var(--font-mono)" font-weight="600">B.TECH</text>
+                            <text x="268" y="157" text-anchor="middle" font-size="8.5" fill="#ff7eb3"
+                                font-family="var(--font-mono)" font-weight="600">CSE</text>
+
+                            <!-- Trait node: BOTTOM — Builder -->
+                            <circle class="trait-node-bg" cx="150" cy="268" r="22" fill="var(--bg-panel)"
+                                stroke="#2ed8a7" stroke-width="1.5" opacity="0.9" />
+                            <text x="150" y="263" text-anchor="middle" font-size="9" fill="#2ed8a7"
+                                font-family="var(--font-mono)" font-weight="600">6+</text>
+                            <text x="150" y="275" text-anchor="middle" font-size="9" fill="#2ed8a7"
+                                font-family="var(--font-mono)" font-weight="600">PROJECTS</text>
+
+                            <!-- Trait node: LEFT — Business Tech -->
+                            <circle class="trait-node-bg" cx="32" cy="150" r="22" fill="var(--bg-panel)"
+                                stroke="#ffbd2e" stroke-width="1.5" opacity="0.9" />
+                            <text x="32" y="145" text-anchor="middle" font-size="8" fill="#ffbd2e"
+                                font-family="var(--font-mono)" font-weight="600">BIZ</text>
+                            <text x="32" y="157" text-anchor="middle" font-size="8" fill="#ffbd2e"
+                                font-family="var(--font-mono)" font-weight="600">TECH</text>
+
+                            <!-- Orbiting accent dot (fast) -->
+                            <circle r="5" fill="var(--accent-primary)" opacity="0.85">
+                                <animateMotion dur="6s" repeatCount="indefinite">
+                                    <mpath href="#orbitPath" />
+                                </animateMotion>
+                            </circle>
+
+                            <!-- Orbiting accent dot (slow, opposite) -->
+                            <circle r="3.5" fill="#ff7eb3" opacity="0.7">
+                                <animateMotion dur="10s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"
+                                    calcMode="linear">
+                                    <mpath href="#orbitPath" />
+                                </animateMotion>
+                            </circle>
+
+                            <path id="orbitPath" d="M 150,32 A 118,118 0 1 1 149.9,32" fill="none" />
+
+                            <!-- Central avatar circle -->
+                            <circle cx="150" cy="150" r="36" fill="url(#avatarGrad)" opacity="0.95" />
+                            <!-- Person silhouette -->
+                            <circle class="avatar-shape" cx="150" cy="138" r="11" fill="white" opacity="0.9" />
+                            <ellipse class="avatar-shape" cx="150" cy="163" rx="18" ry="12" fill="white"
+                                opacity="0.9" />
+
+                            <!-- Central pulse ring -->
+                            <circle cx="150" cy="150" r="36" fill="none" stroke="white" stroke-width="1.5"
+                                opacity="0.0">
+                                <animate attributeName="r" values="36;52;36" dur="2.5s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s"
+                                    repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- Name label -->
+                            <text x="150" y="205" text-anchor="middle" font-size="10" fill="var(--text-muted)"
+                                font-family="var(--font-mono)" letter-spacing="2">JUI TAWDE</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Toolkit Section -->
+        <section class="panel" id="toolkit">
+            <div class="panel-content flex-split row-reverse-mobile fade-in">
+                <div class="col-left" style="flex: 1.2;">
+                    <div class="section-header">
+                        <span class="eyebrow">EXPERTISE</span>
+                        <h2 class="section-title">The <span class="italic">Toolkit</span></h2>
+                        <p class="section-desc">A carefully curated setup of languages and
+                            frameworks spanning front-end
+                            logic, clean designs, and responsive layouts.</p>
+                    </div>
+                    <div class="pills-container">
+                        <div class="pill">HTML5</div>
+                        <div class="pill">CSS3</div>
+                        <div class="pill">JavaScript</div>
+                        <div class="pill">Python</div>
+                        <div class="pill">C++</div>
+                        <div class="pill">UI/UX Design</div>
+                        <div class="pill">Responsive Layouts</div>
+                        <div class="pill">Problem Solving</div>
+                    </div>
+                </div>
+                <div class="col-right flex-center" style="flex: 0.8; justify-content: flex-end;">
+                    <div class="toolkit-graphic-wrapper" style="width: 100%; display: flex; justify-content: flex-end;">
+                        <!-- Glowing Code Graphic -->
+                        <div class="code-graphic neon-float" style="width: 100%; max-width: 380px;">
+                            <div class="mac-header" style="display: flex; align-items: center;">
+                                <span class="dot red"></span><span class="dot yellow"></span><span
+                                    class="dot green"></span>
+                                <span
+                                    style="margin-left: 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); opacity: 0.7;">toolkit.js</span>
+                            </div>
+                            <pre><code><span class="keyword">const</span> <span class="function">developer</span> = {
+    <span class="keyword">skills</span>: [
+        <span class="comment">'HTML5'</span>,
+        <span class="comment">'CSS3'</span>,
+        <span class="comment">'JavaScript'</span>,
+        <span class="comment">'Python'</span>,
+        <span class="comment">'C++'</span>
+    ],
+    <span class="function">execute</span>: () => {
+        <span class="keyword">return</span> <span class="comment">"Seamless UI/UX"</span>;
+    }
+};
+
+<span class="keyword">export default</span> <span class="function">developer</span>;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="panel" id="projects">
+            <div class="panel-content fade-in">
+                <div class="section-header">
+                    <span class="eyebrow">PROFESSIONAL NARRATIVE</span>
+                    <h2 class="section-title">Selected <span class="italic">Works</span></h2>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1: Employee Leave Trend Visualizer -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Employee Leave Trend Visualizer</h3>
+                                <a href="https://github.com/juitawde/Leave-trend-Visualizer.git" target="_blank"
+                                    class="github-link" title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">Python-based visualization tool analyzing
+                                monthly and departmental
+                                leave trends with actionable insights.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">Python</span><span
+                                        class="metric-label">Data</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Brew & Bloom Website -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Brew & Bloom</h3>
+                                <a href="https://github.com/juitawde/Brew-Bloom.git" target="_blank" class="github-link"
+                                    title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">Blending pastel visuals, smooth animations,
+                                and a cozy café-inspired
+                                layout for a premium experience.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">HTML/CSS</span><span
+                                        class="metric-label">Frontend</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Intrepid-Inspired Travel Website -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Intrepid Replica</h3>
+                                <a href="https://github.com/juitawde/inteprid_replica.git" target="_blank"
+                                    class="github-link" title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">A responsive travel-themed website created
+                                using HTML5 and CSS3 for
+                                educational purposes, focusing on clean UI.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">HTML,
+                                        CSS</span><span class="metric-label">Frontend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: WeatherScope -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>WeatherScope</h3>
+                                <a href="https://github.com/juitawde/WeatherScope.git" target="_blank"
+                                    class="github-link" title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">A modern Weather Data Aggregator Dashboard
+                                fetching real-time info
+                                and visualizing it with interactive UI components.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">HTML, CSS,
+                                        JS</span><span class="metric-label">Frontend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Smart Traffic Signal Simulation -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Smart Traffic Signal Simulation</h3>
+                                <a href="https://github.com/juitawde/traffic_signal.simulator.git" target="_blank"
+                                    class="github-link" title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">A console-based Smart Traffic Signal
+                                Simulation in C++ using
+                                time-based logic and sequential execution.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">C++</span><span
+                                        class="metric-label">Console</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Daily Expense Tracker -->
+                    <div class="project-card glass-panel">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Daily Expense Tracker</h3>
+                                <a href="https://github.com/juitawde/expense_tracker.git" target="_blank"
+                                    class="github-link" title="View Source">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="project-desc">A simple and modern Web App that helps you
+                                record, manage, and
+                                monitor your daily spending effortlessly.</p>
+                            <div class="project-divider"></div>
+                            <div class="metrics">
+                                <div class="metric"><span class="metric-val">HTML, CSS,
+                                        JS</span><span class="metric-label">Frontend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-footer" style="margin-top: 4rem; text-align: center;">
+                    <h3 class="eyebrow" style="opacity: 0.5; letter-spacing: 6px; font-size: 1.0rem;">To see more
+                        projects..visit my <a href="https://github.com/juitawde" class="github-link-alt"
+                            target="_blank">GitHub!</a></h3>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Journey / About Section -->
+        <section class="panel" id="about">
+            <div class="panel-content flex-split fade-in">
+                <div class="col-left">
+                    <div class="section-header">
+                        <span class="eyebrow">ABOUT ME</span>
+                        <h2 class="section-title">The <span class="italic">Journey</span></h2>
+                    </div>
+                    <div class="about-text glass-panel">
+                        <p class="large-text">I am continuously exploring the intersection of
+                            technology, data, and
+                            business to deliver high-quality digital experiences.</p>
+                        <ul class="bullet-list">
+                            <li><span class="list-bullet"></span> <strong>Data Science &
+                                    AI:</strong> Deeply interested
+                                in leveraging data analytics and AI to build intelligent,
+                                impactful solutions.</li>
+                            <li><span class="list-bullet"></span> <strong>Business
+                                    Tech:</strong> Bridging the gap
+                                between robust technical implementations and strategic business
+                                goals.</li>
+                            <li><span class="list-bullet"></span> <strong>User
+                                    Knowledge:</strong> Designing systems
+                                with empathy and understanding, ensuring technology remains
+                                engaging and accessible.
+                            </li>
+                            <li><span class="list-bullet"></span> <strong>Continuous
+                                    Growth:</strong> Looking forward to
+                                a dynamic career in Business Technology while constantly
+                                expanding my cross-functional
+                                skillset.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-right flex-center">
+                    <!-- Dynamic Data Globe Graphic -->
+                    <div class="journey-graphic-wrapper neon-float"
+                        style="width: 100%; max-width: 420px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+                            style="width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 10px 20px rgba(59,130,246,0.2));">
+                            <!-- Ambient Glow -->
+                            <defs>
+                                <radialGradient id="journeyGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.25" />
+                                    <stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="70" fill="url(#journeyGlow)">
+                                <animate attributeName="r" values="65;75;65" dur="4s" repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- Rotating Globe Grid -->
+                            <g stroke="var(--border-light)" stroke-width="1.5" fill="none" opacity="0.6">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" />
+                                <ellipse cx="100" cy="70" rx="45" ry="12" />
+                                <ellipse cx="100" cy="130" rx="45" ry="12" />
+                                <ellipse cx="100" cy="100" rx="20" ry="60" />
+                                <circle cx="100" cy="100" r="60" />
+                            </g>
+
+                            <!-- Ascending Data Path / Journey Line -->
+                            <path d="M 40 130 Q 70 170 100 100 T 160 50" stroke="var(--accent-primary)"
+                                stroke-width="3.5" fill="none" stroke-linecap="round">
+                                <animate attributeName="stroke-dasharray" values="0,300; 300,0" dur="4s"
+                                    repeatCount="indefinite" />
+                            </path>
+
+                            <!-- Journey Nodes -->
+                            <circle cx="40" cy="130" r="4.5" fill="#ff7eb3" />
+                            <circle cx="100" cy="100" r="6.5" fill="#6574ff">
+                                <animate attributeName="r" values="5.5;7.5;5.5" dur="2s" repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="160" cy="50" r="8.5" fill="#2ed8a7">
+                                <animate attributeName="r" values="7.5;10.5;7.5" dur="2s" repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- Outer Data Orbit -->
+                            <g transform="rotate(45 100 100)">
+                                <ellipse cx="100" cy="100" rx="85" ry="12" stroke="var(--text-muted)" stroke-width="1.5"
+                                    fill="none" opacity="0.4" stroke-dasharray="6 6">
+                                </ellipse>
+                                <circle cx="185" cy="100" r="5" fill="var(--text-main)">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 100 100"
+                                        to="360 100 100" dur="8s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="15" cy="100" r="3" fill="#ffbd2e">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 100 100"
+                                        to="360 100 100" dur="12s" repeatCount="indefinite" />
+                                </circle>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="panel" id="education">
+            <div class="panel-content fade-in">
+                <div class="section-header center-align">
+                    <span class="eyebrow">ACADEMIC BACKGROUND</span>
+                    <h2 class="section-title">My <span class="italic">Education</span></h2>
+                    <p class="section-desc">The foundation of my technical and analytical
+                        skills.</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card glass-panel flex-column"
+                        style="justify-content: center; gap: 1.5rem; text-align: center; padding: 3rem;">
+                        <h3 style="font-size: 1.8rem; color: var(--text-main);">B.Tech Computer
+                            Science (CSE)</h3>
+                        <p class="project-desc" style="font-size: 1.2rem;">ITM Skills University
+                            Kharghar</p>
+                        <div class="contact-divider" style="margin: 0 auto;"></div>
+                        <div class="metrics" style="justify-content: center;">
+                            <div class="metric"><span class="metric-val">2029</span><span class="metric-label">Expected
+                                    Graduation</span></div>
+                        </div>
+                        <button class="unlock-btn" onclick="unlockCertificates('btech')">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 17a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5 5 5 0 0 1 5 5v2h1m-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z" />
+                            </svg>
+                            Unlock my Achievements
+                        </button>
+                    </div>
+                    <div class="project-card glass-panel flex-column"
+                        style="justify-content: center; gap: 1.5rem; text-align: center; padding: 3rem;">
+                        <h3 style="font-size: 1.8rem; color: var(--text-main);">11th & 12th
+                            (Science)</h3>
+                        <p class="project-desc" style="font-size: 1.2rem;">Narayana Jr. College,
+                            Nalasopara</p>
+                        <div class="contact-divider" style="margin: 0 auto;"></div>
+                        <div class="metrics" style="justify-content: center;">
+                            <div class="metric"><span class="metric-val">Completed</span><span
+                                    class="metric-label">Status</span></div>
+                        </div>
+                        <button class="unlock-btn" onclick="unlockCertificates('hsc')">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 17a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5 5 5 0 0 1 5 5v2h1m-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z" />
+                            </svg>
+                            Unlock my Certificates
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="panel" id="contact">
+            <div class="panel-content flex-center text-center fade-in" style="flex-direction: column;">
+                <div class="section-header center-align">
+                    <span class="eyebrow">GET IN TOUCH</span>
+                    <h2 class="section-title">Let's <span class="italic">Connect</span></h2>
+                    <p class="section-desc">Open for opportunities, collaborations, or just a
+                        chat.</p>
+                </div>
+
+                <div class="contact-card glass-panel flex-column gap-2" style="width: 100%; max-width: 550px;">
+                    <a href="mailto:juitawde23@gmail.com" class="contact-email-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right:8px;">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>juitawde23@gmail.com</span>
+                    </a>
+                    <div class="contact-divider"></div>
+                    <div class="social-links-col"
+                        style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                        <a href="https://linkedin.com/in/jui-tawde-788210385" target="_blank" class="social-chip"
+                            style="justify-content: center;">
+                            <span>LinkedIn</span> <span class="arrow">↗</span>
+                        </a>
+                        <a href="https://github.com/juitawde" target="_blank" class="social-chip"
+                            style="justify-content: center;">
+                            <span>GitHub</span> <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- New Contact Form -->
+                <div class="contact-form-container">
+                    <div class="contact-form-card glass-panel">
+                        <div class="section-header" style="margin-bottom: 2rem;">
+                            <span class="eyebrow">MESSAGE ME</span>
+                            <h3 style="font-size: 2.1rem; color: var(--text-main);">Feel free to
+                                <span class="italic">connect</span>
+                            </h3>
+                        </div>
+                        <form action="https://formsubmit.co/juitawde23@gmail.com" id="contact-form" method="POST"
+                            class="form-grid">
+                            <!-- Anti-spam -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://juitawde.github.io/official_portfolio/">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" placeholder="Your Age">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Reason for contacting">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="How can I help you?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn full-width">Submit</button>
+                        </form>
+                        <div id="form-success"
+                            style="display: none; padding: 3rem 1rem; text-align: center; border: none !important; background: none !important; box-shadow: none !important;">
+                            <h3 style="font-size: 2rem; color: var(--text-main); margin-bottom: 1.9rem;">Message Sent!
+                            </h3>
+                            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 400px; margin: 0 auto;">
+                                Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                            <button onclick="resetContactForm()" class="unlock-btn"
+                                style="margin-top: 2rem; display: inline-flex;">Send Another Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unlock Modal Overlay -->
+    <div id="unlock-modal">
+        <div class="unlock-content">
+            <div id="unlock-intro">
+                <div class="scanner-line"></div>
+                <h2 style="color: var(--accent-primary); font-family: var(--font-mono); letter-spacing: 4px;">
+                    SECURITY_ACCESS</h2>
+                <div class="unlock-loader"></div>
+                <div id="unlock-status" class="unlock-status">DECRYPTING_FILES...</div>
+            </div>
+
+            <div id="certificate-viewer" style="display: none; width: 100%; text-align: center;">
+                <div class="viewer-header"
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span id="cert-title"
+                        style="font-family: var(--font-mono); color: var(--accent-primary); font-size: 0.9rem; letter-spacing: 2px;">10th
+                        Marksheet</span>
+                    <button onclick="closeUnlockModal()" class="close-modal"
+                        style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer;">&times;</button>
+                </div>
+                <div class="cert-image-wrapper"
+                    style="background: rgba(0,0,0,0.05); border-radius: 12px; padding: 10px; margin-bottom: 1.5rem;">
+                    <img id="cert-img" src="" alt="Certificate"
+                        style="max-width: 100%; max-height: 55vh; border-radius: 8px; display: block; margin: 0 auto;">
+                </div>
+                <div class="viewer-controls"
+                    style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                    <button id="prev-cert" onclick="changeCert(-1)" class="nav-btn"
+                        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--border-light); color: var(--text-main); font-family: var(--font-mono); cursor: pointer;">PREV</button>
+                    <button id="download-cert" onclick="downloadCurrentCert()" class="nav-btn primary"
+                        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: var(--accent-primary); border: none; color: white; font-family: var(--font-mono); cursor: pointer; flex: 1; max-width: 200px;">DOWNLOAD</button>
+                    <button id="next-cert" onclick="changeCert(1)" class="nav-btn"
+                        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--border-light); color: var(--text-main); font-family: var(--font-mono); cursor: pointer;">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Modal Overlay -->
+    <div id="cv-modal" class="modal-overlay">
+        <div class="cv-content glass-panel">
+            <div id="cv-scanning-zone">
+                <div class="laser-grid"></div>
+                <div class="scan-bar"></div>
+                <div class="biometric-frame">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+                <h2 class="scan-title">SYSTEM_SCANNING...</h2>
+                <div id="cv-status" class="scan-status">INITIALIZING_BIOMETRIC_CHECK</div>
+            </div>
+
+            <div id="cv-viewer" style="display: none; width: 100%; position: relative;">
+                <div class="viewer-header">
+                    <span class="font-mono accent-text">JUI_TAWDE_CV.pdf</span>
+                    <button onclick="closeCVModal()" class="close-modal">&times;</button>
+                </div>
+                <div class="cv-image-container">
+                    <img src="Resume copy.png" alt="Resume" class="cv-img">
+                </div>
+                <div class="viewer-actions">
+                    <a href="Resume copy.png" download="Jui_Tawde_CV.png" class="btn primary full-width">DOWNLOAD CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Footer Status Bar -->
+    <div class="status-bar">
+
+        <div class="status-left">
+            <span class="indicator"></span>
+            <span class="status-text fw-600">LIVE</span>
+            <span class="divider">|</span>
+            <span id="clock" class="status-text font-mono">00:00 AM</span>
+            <span class="divider">|</span>
+            <span class="status-text active-task track-wide">TURNING IDEAS INTO CODE ✨</span>
+        </div>
+        <div class="status-right">
+            <span class="status-text">©️ 2026 Jui Tawde</span>
+        </div>
+    </div>
+
+    <!-- Pagination dots (bottom mobile/desktop secondary navigation) -->
+    <div class="bottom-pagination">
+        <div class="nav-dot active" data-index="0"></div>
+        <div class="nav-dot" data-index="1"></div>
+        <div class="nav-dot" data-index="2"></div>
+        <div class="nav-dot" data-index="3"></div>
+        <div class="nav-dot" data-index="4"></div>
+        <div class="nav-dot" data-index="5"></div>
+        <div class="nav-dot" data-index="6"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
