@@ -7,8 +7,8 @@ export default function Hero({ openCV }) {
       <div className="panel-content flex-split row-reverse-mobile fade-in visible">
         <div className="col-left">
           <h1 className="headline">
-            Aspiring <br />
-            <span className="italic accent-text">Data Engineer</span>
+            Jui Tawde <br />
+            <span className="hero-role">Frontend Developer</span>
           </h1>
           <br />
           <br />

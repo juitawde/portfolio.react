@@ -5,43 +5,51 @@ export default function Journey() {
   return (
     <section className="panel" id="about">
       <div className="panel-content flex-split fade-in visible">
-        <div className="col-left">
+        <div className="col-left" style={{ flex: 1.1 }}>
           <div className="section-header">
             <span className="eyebrow">ABOUT ME</span>
             <h2 className="section-title">
               The <span className="italic">Journey</span>
             </h2>
           </div>
-          <div className="about-text glass-panel">
+          <div className="about-text glass-panel" style={{ width: '100%' }}>
             <p className="large-text">
               I am continuously exploring the intersection of technology, data, and
               business to deliver high-quality digital experiences.
             </p>
             <ul className="bullet-list">
               <li>
-                <span className="list-bullet"></span>{' '}
-                <strong>Data Science & AI:</strong> Deeply interested in leveraging data analytics and AI to build
-                intelligent, impactful solutions.
+                <span className="list-bullet"></span>
+                <span>
+                  <strong>Data Science & AI:</strong> Deeply interested in leveraging data analytics and AI to build
+                  intelligent, impactful solutions.
+                </span>
               </li>
               <li>
-                <span className="list-bullet"></span>{' '}
-                <strong>Business Tech:</strong> Bridging the gap between robust technical implementations and strategic
-                business goals.
+                <span className="list-bullet"></span>
+                <span>
+                  <strong>Business Tech:</strong> Bridging the gap between robust technical implementations and strategic
+                  business goals.
+                </span>
               </li>
               <li>
-                <span className="list-bullet"></span>{' '}
-                <strong>User Knowledge:</strong> Designing systems with empathy and understanding, ensuring technology
-                remains engaging and accessible.
+                <span className="list-bullet"></span>
+                <span>
+                  <strong>User Knowledge:</strong> Designing systems with empathy and understanding, ensuring technology
+                  remains engaging and accessible.
+                </span>
               </li>
               <li>
-                <span className="list-bullet"></span>{' '}
-                <strong>Continuous Growth:</strong> Looking forward to a dynamic career in Business Technology while
-                constantly expanding my cross-functional skillset.
+                <span className="list-bullet"></span>
+                <span>
+                  <strong>Continuous Growth:</strong> Looking forward to a dynamic career in Business Technology while
+                  constantly expanding my cross-functional skillset.
+                </span>
               </li>
             </ul>
           </div>
         </div>
-        <div className="col-right flex-center">
+        <div className="col-right flex-center" style={{ flex: 0.9 }}>
           {/* Dynamic Data Globe Graphic inside TiltCard */}
           <TiltCard
             className="journey-graphic-wrapper"
