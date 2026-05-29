@@ -1782,19 +1782,18 @@ body {
 }
 
 .custom-cursor-dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background-color: var(--accent-primary);
     border-radius: 50%;
     position: fixed;
     top: 0;
     left: 0;
-    margin-left: -3px;
-    margin-top: -3px;
+    margin-left: -2.5px;
+    margin-top: -2.5px;
     pointer-events: none;
     z-index: 99999;
-    /* NO transform transition — JS requestAnimationFrame handles movement */
-    transition: opacity 0.2s ease, background-color 0.2s ease, width 0.15s ease, height 0.15s ease;
+    transition: opacity 0.2s ease, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
     will-change: transform;
 }
 
@@ -1804,51 +1803,30 @@ body {
     opacity: 0;
 }
 
-.custom-cursor-dot.clicked {
-    width: 10px;
-    height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;
-    background-color: #93c5fd;
-}
-
 .custom-cursor-ring {
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid rgba(59, 130, 246, 0.6);
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--accent-primary);
     border-radius: 50%;
     position: fixed;
     top: 0;
     left: 0;
-    margin-left: -16px;
-    margin-top: -16px;
+    margin-left: -9px;
+    margin-top: -9px;
     pointer-events: none;
     z-index: 99998;
-    /* transform is handled by JS RAF — only transition size/color/opacity */
-    transition: opacity 0.2s ease, border-color 0.25s ease, background-color 0.25s ease,
-                width 0.25s cubic-bezier(0.25, 1, 0.5, 1), height 0.25s cubic-bezier(0.25, 1, 0.5, 1),
-                margin 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+    transition: opacity 0.2s ease, border-color 0.3s ease, background-color 0.3s ease, width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
 
 .custom-cursor-ring.hovered {
-    width: 44px;
-    height: 44px;
-    margin-left: -22px;
-    margin-top: -22px;
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -14px;
     border-color: var(--accent-primary);
-    background-color: rgba(59, 130, 246, 0.07);
-    box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
-}
-
-.custom-cursor-ring.clicked {
-    width: 22px;
-    height: 22px;
-    margin-left: -11px;
-    margin-top: -11px;
-    border-color: #93c5fd;
-    background-color: rgba(147, 197, 253, 0.15);
-    box-shadow: 0 0 20px rgba(147, 197, 253, 0.4);
+    background-color: rgba(59, 130, 246, 0.08);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
 }
 
 /* Premium Attractive Typography Overrides */
