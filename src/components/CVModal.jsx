@@ -72,7 +72,7 @@ export default function CVModal({ isOpen, onClose }) {
               </button>
             </div>
             <div className="cv-image-container">
-              <img src="/Resume copy 2.png" alt="Resume" className="cv-img" />
+              <img src="/resume.png" alt="Resume" className="cv-img" />
             </div>
             <div className="viewer-actions">
               <a

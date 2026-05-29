@@ -3,22 +3,23 @@ import React, { useEffect, useRef } from 'react';
 export default function CustomCursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
-  const mouseRef = useRef({ x: -100, y: -100 });
-  const ringPosRef = useRef({ x: -100, y: -100 });
+  const mouseRef = useRef({ x: -200, y: -200 });
+  const ringPosRef = useRef({ x: -200, y: -200 });
   const isHoveredRef = useRef(false);
+  const isClickedRef = useRef(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
 
-      // Direct DOM check for interactive elements to keep it extremely fast
+      // Check for interactive elements
       const target = e.target;
       if (target) {
         const interactive = target.closest(
-          'a, button, .pill, .project-card, .unlock-btn, .nav-dot, .dot, .social-chip, .submit-btn, .close-modal, pre'
+          'a, button, .pill, .project-card, .unlock-btn, .nav-dot, .dot, .social-chip, .submit-btn, .close-modal, pre, input, textarea, [role="button"]'
         );
         const hovered = !!interactive;
-        
+
         if (hovered !== isHoveredRef.current) {
           isHoveredRef.current = hovered;
           if (hovered) {
@@ -42,24 +43,39 @@ export default function CustomCursor() {
       if (ringRef.current) ringRef.current.style.opacity = '1';
     };
 
+    const handleMouseDown = () => {
+      isClickedRef.current = true;
+      dotRef.current?.classList.add('clicked');
+      ringRef.current?.classList.add('clicked');
+    };
+
+    const handleMouseUp = () => {
+      isClickedRef.current = false;
+      dotRef.current?.classList.remove('clicked');
+      ringRef.current?.classList.remove('clicked');
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
 
     let animationFrameId;
+
     const updatePositions = () => {
-      // Linear Interpolation (lerp) lag factor: 0.18 for premium responsiveness
-      const ease = 0.18;
-      const dx = mouseRef.current.x - ringPosRef.current.x;
-      const dy = mouseRef.current.y - ringPosRef.current.y;
+      // Lerp factor — higher = snappier, lower = smoother trail
+      const ease = 0.12;
 
-      ringPosRef.current.x += dx * ease;
-      ringPosRef.current.y += dy * ease;
+      ringPosRef.current.x += (mouseRef.current.x - ringPosRef.current.x) * ease;
+      ringPosRef.current.y += (mouseRef.current.y - ringPosRef.current.y) * ease;
 
-      // Directly update style transforms to prevent React re-renders completely!
+      // Dot snaps instantly (no lerp on dot — CSS transition removed too)
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouseRef.current.x}px, ${mouseRef.current.y}px, 0)`;
       }
+
+      // Ring trails smoothly behind mouse
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ringPosRef.current.x}px, ${ringPosRef.current.y}px, 0)`;
       }
@@ -73,6 +89,8 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

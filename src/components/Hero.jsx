@@ -2,6 +2,12 @@ import React from 'react';
 import Magnetic from './Magnetic';
 
 export default function Hero({ openCV }) {
+  const handleViewProjects = (e) => {
+    e.preventDefault();
+    const el = document.getElementById('projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="panel" id="hero">
       <div className="panel-content flex-split row-reverse-mobile fade-in visible">
@@ -19,7 +25,7 @@ export default function Hero({ openCV }) {
           </p>
           <div className="cta-group" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             <Magnetic strength={0.3} range={60}>
-              <a href="#projects" className="btn primary">
+              <a href="#projects" onClick={handleViewProjects} className="btn primary">
                 View Projects
               </a>
             </Magnetic>
