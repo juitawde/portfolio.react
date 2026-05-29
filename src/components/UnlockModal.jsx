@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const CERT_DATA = {
   hsc: [
-    { title: '10th Marksheet (SSC)', file: 'dist/10th.jpeg' },
-    { title: '12th Marksheet (HSC)', file: 'dist/12th.jpeg' },
+    { title: '10th Marksheet (SSC)', file: '/10th.jpeg' },
+    { title: '12th Marksheet (HSC)', file: '/12th.jpeg' },
   ],
   btech: [
-    { title: 'HTML Course Certificate', file: 'dist/html.png' },
+    { title: 'HTML Course Certificate', file: '/html.png' },
   ],
 };
 

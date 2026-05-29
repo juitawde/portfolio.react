@@ -50,7 +50,7 @@ export default function Hero({ openCV }) {
           <div className="profile-card">
             <div className="profile-image-container">
               <img
-                src="dist/profile.jpeg"
+                src="/profile.jpeg"
                 alt="Jui Tawde"
                 id="profile-img"
               />
