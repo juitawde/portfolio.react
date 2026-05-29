@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const CERT_DATA = {
   hsc: [
-    { title: '10th Marksheet (SSC)', file: '/WhatsApp Image 2025-12-21 at 17.35.04 copy 2.jpeg' },
-    { title: '12th Marksheet (HSC)', file: '/WhatsApp Image 2025-12-21 at 17.21.39 copy 2.jpeg' },
+    { title: '10th Marksheet (SSC)', file: 'dist/10th.jpeg' },
+    { title: '12th Marksheet (HSC)', file: 'dist/12th.jpeg' },
   ],
   btech: [
-    { title: 'HTML Course Certificate', file: '/Screenshot 2026-02-24 at 12.28.59 AM copy 2.png' },
+    { title: 'HTML Course Certificate', file: 'dist/html.png' },
   ],
 };
 

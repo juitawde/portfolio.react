@@ -50,7 +50,7 @@ export default function Hero({ openCV }) {
           <div className="profile-card">
             <div className="profile-image-container">
               <img
-                src="/WhatsApp Image 2025-12-21 at 13.49.47 copy 3.jpeg"
+                src="dist/profile.jpeg"
                 alt="Jui Tawde"
                 id="profile-img"
               />

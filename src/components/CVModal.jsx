@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // EASILY CHANGE THIS URL TO YOUR ONLINE RESUME LINK (e.g., Google Drive link, Canva link, etc.)
-const RESUME_URL = '/Resume copy 2.png';
+const RESUME_URL = 'dist/resume.png';
 
 const SCAN_STEPS = [
   'ESTABLISHING_SECURE_CONNECTION...',
