@@ -9,31 +9,18 @@ export default function AboutMe() {
           <div className="section-header">
             <span className="eyebrow">ABOUT ME</span>
             <h2 className="section-title">
-              Who <span class="italic">I Am</span>
+              Who <span className="italic">I Am</span>
             </h2>
           </div>
           <div className="about-bio-card glass-panel">
             <p className="bio-para">
-              My name is <strong>Jui Tawde</strong>, and I am currently pursuing a B.Tech
-              in Computer Science Engineering at <strong>ITM Skills University, Kharghar</strong>. I have
-              a strong interest in the fields of <strong>Data Science</strong> and <strong>Business
-              Technology</strong>, where I aim to bridge the gap between technical solutions and
-              real-world business needs.
+              I'm <strong>Jui Tawde</strong>, a second-year B.Tech Computer Science Engineering student at <strong>ITM Skills University</strong>, passionate about building practical software solutions. My development journey spans frontend experiences, backend systems, databases, and full-stack applications using <span className="accent-text fw-600">React, JavaScript, TypeScript, Node.js, and Express.js</span>.
             </p>
             <p className="bio-para">
-              I am deeply enthusiastic about building innovative projects and taking on
-              leadership roles that allow me to collaborate, solve problems, and create meaningful impact.
-              I am particularly keen on exploring data science concepts, understanding user interaction,
-              and analyzing systems from a business perspective to design more effective and user-centric
-              solutions.
+              Through projects like <strong>PetMatch</strong>, <strong>Quiz Arena</strong>, and <strong>Chatterly</strong>, I've explored real-time communication, authentication, REST APIs, and database-driven applications. Other projects have helped me strengthen my understanding of <span className="accent-text fw-600">Java, C++, object-oriented programming, data structures, and algorithmic problem-solving</span>.
             </p>
             <p className="bio-para">
-              Over time, I have developed a solid foundation by working on projects across
-              multiple programming languages and technologies, including{' '}
-              <span className="accent-text fw-600">HTML, CSS, C++, Python, JavaScript, and Scratch</span>. These
-              experiences have helped me cultivate an analytical mindset, strengthen my problem-solving
-              abilities, and continuously push myself to learn and build more advanced and impactful
-              projects.
+              Beyond development, I'm interested in <strong>data science</strong> and <strong>business technology</strong>, particularly how data and software can solve real-world problems and support better decisions. I enjoy learning by building, experimenting with new ideas, and continuously improving my technical skills to create user-centric applications.
             </p>
           </div>
         </div>
@@ -233,7 +220,7 @@ export default function AboutMe() {
                 fontFamily="var(--font-mono)"
                 fontWeight="600"
               >
-                6+
+                8
               </text>
               <text
                 x="150"

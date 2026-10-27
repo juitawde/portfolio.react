@@ -62,7 +62,7 @@ export default function Contact() {
         </div>
 
         <div className="flex-split row-reverse-mobile" style={{ width: '100%', alignItems: 'flex-start', gap: '3rem', marginTop: '2rem' }}>
-          <div className="col-left flex-center" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <div className="col-left" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
             <div className="contact-card glass-panel" style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', padding: '3rem', margin: 0, maxWidth: '100%' }}>
               <Magnetic strength={0.25} range={50} style={{ display: 'block', width: '100%' }}>
                 <a href="mailto:juitawde23@gmail.com" className="contact-email-link" style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
@@ -114,8 +114,8 @@ export default function Contact() {
 
           <div className="col-right" style={{ flex: 1.2, textAlign: 'left' }}>
             {/* Contact Form Container */}
-            <div className="contact-form-container" style={{ width: '100%' }}>
-              <div className="contact-form-card glass-panel" style={{ padding: '3rem' }}>
+            <div className="contact-form-container" style={{ width: '100%', marginTop: 0 }}>
+              <div className="contact-form-card glass-panel" style={{ padding: '3rem', margin: 0 }}>
                 <div className="section-header" style={{ marginBottom: '2rem' }}>
                   <span className="eyebrow">MESSAGE ME</span>
                   <h3 style={{ fontSize: '2.1rem', color: 'var(--text-main)' }}>

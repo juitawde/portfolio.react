@@ -370,7 +370,7 @@ body {
     background: var(--bg-panel-hover);
     border-color: var(--accent-primary);
     transform: translateY(-8px);
-    box-shadow: 0 17px 37px rgba(15, 138, 192, 0.67);
+    box-shadow: 0 8px 8px rgba(15, 138, 192, 0.67);
 }
 
 /* Hero Section */
@@ -627,7 +627,7 @@ body {
 }
 
 .project-info h3 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-bottom: 0;
     font-weight: 600;
     color: var(--text-main);
@@ -657,7 +657,7 @@ body {
 
 .project-desc {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.7rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;

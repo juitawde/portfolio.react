@@ -10,23 +10,24 @@ export default function CustomCursor() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
+    };
 
-      const target = e.target;
-      if (target) {
-        const interactive = target.closest(
-          'a, button, .pill, .project-card, .unlock-btn, .nav-dot, .dot, .social-chip, .submit-btn, .close-modal, pre'
-        );
-        const hovered = !!interactive;
-
-        if (hovered !== isHoveredRef.current) {
-          isHoveredRef.current = hovered;
-          if (hovered) {
-            dotRef.current?.classList.add('hovered');
-            ringRef.current?.classList.add('hovered');
-          } else {
-            dotRef.current?.classList.remove('hovered');
-            ringRef.current?.classList.remove('hovered');
-          }
+    const handleMouseOver = (e) => {
+      const interactive = e.target.closest(
+        'a, button, .pill, .project-card, .unlock-btn, .nav-dot, .dot, .social-chip, .submit-btn, .close-modal, pre, input, textarea'
+      );
+      const hovered = !!interactive;
+      if (hovered !== isHoveredRef.current) {
+        isHoveredRef.current = hovered;
+        if (hovered) {
+          dotRef.current?.classList.add('hovered');
+          ringRef.current?.classList.add('hovered');
+        } else {
+          dotRef.current?.classList.remove('hovered');
+          ringRef.current?.classList.remove('hovered');
         }
       }
     };
@@ -41,22 +42,20 @@ export default function CustomCursor() {
       if (ringRef.current) ringRef.current.style.opacity = '1';
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
     let animationFrameId;
     const updatePositions = () => {
-      const ease = 0.18;
+      const ease = 0.35;
       const dx = mouseRef.current.x - ringPosRef.current.x;
       const dy = mouseRef.current.y - ringPosRef.current.y;
 
       ringPosRef.current.x += dx * ease;
       ringPosRef.current.y += dy * ease;
 
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${mouseRef.current.x}px, ${mouseRef.current.y}px, 0)`;
-      }
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ringPosRef.current.x}px, ${ringPosRef.current.y}px, 0)`;
       }
@@ -68,6 +67,7 @@ export default function CustomCursor() {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
       cancelAnimationFrame(animationFrameId);

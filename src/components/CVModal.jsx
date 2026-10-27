@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-// EASILY CHANGE THIS URL TO YOUR ONLINE RESUME LINK (e.g., Google Drive link, Canva link, etc.)
-const RESUME_URL = '/resume.png';
+// Online / local PDF resume link
+const RESUME_URL = '/resume.pdf';
 
 const SCAN_STEPS = [
   'ESTABLISHING_SECURE_CONNECTION...',
@@ -79,7 +79,7 @@ export default function CVModal({ isOpen, onClose }) {
                 href={RESUME_URL}
                 target={RESUME_URL.startsWith('http') ? '_blank' : undefined}
                 rel={RESUME_URL.startsWith('http') ? 'noopener noreferrer' : undefined}
-                download={RESUME_URL.startsWith('http') ? undefined : 'Jui_Tawde_CV.png'}
+                download={RESUME_URL.startsWith('http') ? undefined : 'Jui_Tawde_Resume.pdf'}
                 className="btn primary full-width"
               >
                 DOWNLOAD CV

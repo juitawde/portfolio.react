@@ -14,14 +14,12 @@ export default function Hero({ openCV }) {
         <div className="col-left">
           <h1 className="headline">
             Jui Tawde <br />
-            <span className="hero-role">Frontend Developer</span>
+            <span className="hero-role">Full Stack Engineer</span>
           </h1>
           <br />
           <br />
           <p className="subheadline">
-            Actively building skills in data science and business thinking to create
-            impactful, user-focused solutions. Learning to transform complex ideas into smart, analytical,
-            and practical innovations while working on Frontend.
+            I'm a second-year Computer Science Engineering student building full-stack applications and real-time platforms. Beyond development, I'm interested in data science and business technology, exploring how software and data can solve practical, real-world problems.
           </p>
           <div className="cta-group" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             <Magnetic strength={0.3} range={60}>

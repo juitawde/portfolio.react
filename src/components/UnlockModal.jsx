@@ -6,7 +6,49 @@ const CERT_DATA = {
     { title: '12th Marksheet (HSC)', file: '/12th.jpeg' },
   ],
   btech: [
-    { title: 'HTML Course Certificate', file: '/html.png' },
+    {
+      title: 'Introduction to HTML',
+      file: '/html.png',
+      download: '/assets/certs/html_certificate.pdf',
+    },
+    {
+      title: 'Java Course - Mastering the Fundamentals (SCALER)',
+      file: '/assets/certs/java_scaler.png',
+    },
+    {
+      title: 'JavaScript (Basic) - HackerRank',
+      file: '/assets/certs/javascript_basic.png',
+      download: '/assets/certs/javascript_basic.pdf',
+    },
+    {
+      title: 'JavaScript (Intermediate) - HackerRank',
+      file: '/assets/certs/javascript_intermediate.png',
+      download: '/assets/certs/javascript_intermediate.pdf',
+    },
+    {
+      title: 'Node (Basic) - HackerRank',
+      file: '/assets/certs/nodejs_basic.png',
+      download: '/assets/certs/nodejs_basic.pdf',
+    },
+    {
+      title: 'Node.js (Intermediate) - HackerRank',
+      file: '/assets/certs/nodejs_intermediate.png',
+    },
+    {
+      title: 'SQL (Basic) - HackerRank',
+      file: '/assets/certs/sql_basic.png',
+      download: '/assets/certs/sql_basic.pdf',
+    },
+    {
+      title: 'SQL (Intermediate) - HackerRank',
+      file: '/assets/certs/sql_intermediate.png',
+      download: '/assets/certs/sql_intermediate.pdf',
+    },
+    {
+      title: 'Networking Basics - Cisco Networking Academy',
+      file: '/assets/certs/networking_basics.png',
+      download: '/assets/certs/networking_basics.pdf',
+    },
   ],
 };
 
@@ -66,10 +108,12 @@ export default function UnlockModal({ isOpen, type, onClose }) {
   };
 
   const handleDownload = () => {
-    if (!currentCert.file) return;
+    const targetFile = currentCert.download || currentCert.file;
+    if (!targetFile) return;
     const link = document.createElement('a');
-    link.href = currentCert.file;
-    link.download = currentCert.title + currentCert.file.substring(currentCert.file.lastIndexOf('.'));
+    link.href = targetFile;
+    const ext = targetFile.substring(targetFile.lastIndexOf('.'));
+    link.download = currentCert.title + ext;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -104,7 +148,7 @@ export default function UnlockModal({ isOpen, type, onClose }) {
                   letterSpacing: '2px',
                 }}
               >
-                {currentCert.title}
+                {currentCert.title} {hasMultiple ? `[${certIndex + 1}/${data.length}]` : ''}
               </span>
               <button
                 onClick={onClose}
