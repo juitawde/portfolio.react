@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 function ProjectImageScanner({ src, code, title }) {
   const containerRef = useRef(null);
@@ -142,8 +142,8 @@ const PROJECTS_DATA = [
     live: 'https://pet-adoption-portal-1.onrender.com/',
     github: 'https://github.com/juitawde/pet-adoption-portal',
     image: '/assets/project_petmatch.png',
-    desc: 'A full-stack pet adoption platform featuring pet listings, adoption applications, admin management, JWT and Firebase authentication, real-time updates, and push notifications.',
-    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Firebase Auth', 'Socket.IO', 'FCM'],
+    desc: 'A full-stack pet adoption platform with authentication, real-time communication, and pet notifications.',
+    tech: ['React.js', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'JWT', 'Firebase Authentication', 'Socket.IO', 'Firebase Cloud Messaging'],
     metricVal: 'React • Node',
     metricLabel: 'Full Stack',
     code: (
@@ -162,7 +162,7 @@ const PROJECTS_DATA = [
     live: 'https://realtime-quiz-platform-w0c4.onrender.com/',
     github: 'https://github.com/juitawde/realtime-quiz-platform',
     image: '/assets/project_quiz_arena.png',
-    desc: 'A real-time multiplayer quiz platform featuring PIN-based rooms, synchronized timers, custom quizzes, document import, persistent quiz history, performance reports, leaderboards, and a winners\' podium.',
+    desc: 'A multiplayer quiz platform with real-time gameplay, competitive scoring, and quiz history.',
     tech: ['JavaScript', 'Node.js', 'Express.js', 'Socket.IO', 'MongoDB'],
     metricVal: 'Socket.IO • Node',
     metricLabel: 'Real-Time',
@@ -183,7 +183,7 @@ const PROJECTS_DATA = [
     live: 'https://chatterly-self.vercel.app/',
     github: 'https://github.com/juitawde/realtime-chat-app',
     image: '/assets/project_chatterly.png',
-    desc: 'A full-stack real-time chat application with direct and group conversations, authentication, media uploads, message editing and reactions, user blocking, notifications, and AI-powered chat summarization.',
+    desc: 'A real-time messaging application built for interactive conversations and seamless communication.',
     tech: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
     metricVal: 'React • TypeScript',
     metricLabel: 'Full Stack',
@@ -200,11 +200,30 @@ const PROJECTS_DATA = [
     ),
   },
   {
+    title: 'BorderSight AI — AI-Powered Border Surveillance',
+    live: 'https://bordersight-ai.vercel.app/',
+    github: 'https://github.com/juitawde/BorderSight-AI',
+    image: '/assets/project_bordersight.png',
+    desc: 'An AI-powered surveillance dashboard for monitoring camera feeds, object detection, and security alerts.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'TensorFlow.js', 'COCO-SSD'],
+    metricVal: 'TensorFlow.js • JS',
+    metricLabel: 'Computer Vision',
+    code: (
+      <code>
+        <span style={{ color: '#ff7eb3' }}>const</span> model = <span style={{ color: '#ff7eb3' }}>await</span> cocoSsd.load();{"\n"}
+        <span style={{ color: '#ff7eb3' }}>async function</span> detectThreats(frame) &#123;{"\n"}
+        {"  "}<span style={{ color: '#ff7eb3' }}>const</span> detections = <span style={{ color: '#ff7eb3' }}>await</span> model.detect(frame);{"\n"}
+        {"  "}<span style={{ color: '#ff7eb3' }}>return</span> detections.filter(d =&gt; d.score &gt;= <span style={{ color: '#2ed8a7' }}>0.45</span>);{"\n"}
+        &#125;
+      </code>
+    ),
+  },
+  {
     title: 'Vox Commander — Voice-Controlled Notes App',
     live: 'https://vox-commander.vercel.app/',
     github: 'https://github.com/juitawde/vox_commander',
     image: '/assets/project_vox_commander.png',
-    desc: 'A voice-controlled notes application built with React and the Web Speech API, featuring reusable components, Local Storage persistence, PDF export, and a responsive interface.',
+    desc: 'A voice-controlled notes application that uses speech recognition to create and manage notes.',
     tech: ['React.js', 'JavaScript', 'Web Speech API', 'Local Storage'],
     metricVal: 'React • Web Speech',
     metricLabel: 'Voice App',
@@ -215,6 +234,47 @@ const PROJECTS_DATA = [
         recognition.onresult = (event) =&gt; &#123;{"\n"}
         {"  "}<span style={{ color: '#ff7eb3' }}>const</span> text = event.results[event.resultIndex][<span style={{ color: '#2ed8a7' }}>0</span>].transcript;{"\n"}
         {"  "}dispatchCommand(text.trim());{"\n"}
+        &#125;;
+      </code>
+    ),
+  },
+  {
+    title: 'Eventify — Java Event Management System',
+    github: 'https://github.com/juitawde/eventify-java',
+    image: '/assets/project_eventify.png',
+    desc: 'A Java desktop application for event management, demonstrating object-oriented programming and collection-based data handling.',
+    tech: ['Java', 'Swing', 'Object-Oriented Programming', 'Collections Framework'],
+    metricVal: 'Java • Swing',
+    metricLabel: 'Desktop App',
+    code: (
+      <code>
+        <span style={{ color: '#ff7eb3' }}>public class</span> <span style={{ color: '#6574ff' }}>EventManager</span> &#123;{"\n"}
+        {"  "}<span style={{ color: '#ff7eb3' }}>private</span> Map&lt;String, Event&gt; events = <span style={{ color: '#ff7eb3' }}>new</span> HashMap&lt;&gt;();{"\n"}
+        {"  "}<span style={{ color: '#ff7eb3' }}>public synchronized boolean</span> bookTicket(String id, User u) &#123;{"\n"}
+        {"    "}Event ev = events.get(id);{"\n"}
+        {"    "}<span style={{ color: '#ff7eb3' }}>return</span> ev != <span style={{ color: '#ff7eb3' }}>null</span> &amp;&amp; ev.reserveSeat(u);{"\n"}
+        {"  "}&#125;{"\n"}
+        &#125;
+      </code>
+    ),
+  },
+  {
+    title: 'MemGrid — Distributed Shared Memory Simulator',
+    github: 'https://github.com/juitawde/MemGrid',
+    image: '/assets/project_memgrid.png',
+    desc: 'A C++ simulator demonstrating data structures, memory-management concepts, and graph-based algorithms.',
+    tech: ['C++', 'AVL Trees', 'Hash Maps', 'Graphs', 'Priority Queues', "Dijkstra's Algorithm"],
+    metricVal: 'C++ • Algorithms',
+    metricLabel: 'Distributed Sys',
+    code: (
+      <code>
+        <span style={{ color: '#ff7eb3' }}>class</span> <span style={{ color: '#6574ff' }}>DSMCluster</span> &#123;{"\n"}
+        {"  "}AVLTree&lt;<span style={{ color: '#6574ff' }}>int</span>, MemoryBlock&gt; blockIndex;{"\n"}
+        {"  "}Graph networkTopology;{"\n"}
+        <span style={{ color: '#ff7eb3' }}>public</span>:{"\n"}
+        {"  "}vector&lt;<span style={{ color: '#6574ff' }}>int</span>&gt; route(int src, int targetBlock) &#123;{"\n"}
+        {"    "}<span style={{ color: '#ff7eb3' }}>return</span> networkTopology.dijkstra(src, targetBlock);{"\n"}
+        {"  "}&#125;{"\n"}
         &#125;;
       </code>
     ),
@@ -236,67 +296,6 @@ const PROJECTS_DATA = [
         trends.unstack().plot(kind=<span style={{ color: '#2ed8a7' }}>"bar"</span>, stacked=<span style={{ color: '#ff7eb3' }}>True</span>){"\n"}
         plt.title(<span style={{ color: '#2ed8a7' }}>"Departmental Trends"</span>){"\n"}
         plt.show()
-      </code>
-    ),
-  },
-  {
-    title: 'Eventify — Java Event Management System',
-    github: 'https://github.com/juitawde/eventify-java',
-    image: '/assets/project_eventify.png',
-    desc: 'A Java Swing event management application for browsing, searching, and booking events, with admin management and object-oriented data handling using Java collections.',
-    tech: ['Java', 'Swing', 'Object-Oriented Programming', 'Collections Framework'],
-    metricVal: 'Java • Swing',
-    metricLabel: 'Desktop App',
-    code: (
-      <code>
-        <span style={{ color: '#ff7eb3' }}>public class</span> <span style={{ color: '#6574ff' }}>EventManager</span> &#123;{"\n"}
-        {"  "}<span style={{ color: '#ff7eb3' }}>private</span> Map&lt;String, Event&gt; events = <span style={{ color: '#ff7eb3' }}>new</span> HashMap&lt;&gt;();{"\n"}
-        {"  "}<span style={{ color: '#ff7eb3' }}>public synchronized boolean</span> bookTicket(String id, User u) &#123;{"\n"}
-        {"    "}Event ev = events.get(id);{"\n"}
-        {"    "}<span style={{ color: '#ff7eb3' }}>return</span> ev != <span style={{ color: '#ff7eb3' }}>null</span> &amp;&amp; ev.reserveSeat(u);{"\n"}
-        {"  "}&#125;{"\n"}
-        &#125;
-      </code>
-    ),
-  },
-  {
-    title: 'MemGrid — Distributed Shared Memory Simulator',
-    github: 'https://github.com/juitawde/MemGrid',
-    image: '/assets/project_memgrid.png',
-    desc: 'A C++ distributed shared memory simulator using AVL trees, hash maps, graphs, priority queues, and Dijkstra\'s algorithm for efficient node communication.',
-    tech: ['C++', 'AVL Trees', 'Hash Maps', 'Graphs', 'Priority Queues', 'Dijkstra'],
-    metricVal: 'C++ • Algorithms',
-    metricLabel: 'Distributed Sys',
-    code: (
-      <code>
-        <span style={{ color: '#ff7eb3' }}>class</span> <span style={{ color: '#6574ff' }}>DSMCluster</span> &#123;{"\n"}
-        {"  "}AVLTree&lt;<span style={{ color: '#6574ff' }}>int</span>, MemoryBlock&gt; blockIndex;{"\n"}
-        {"  "}Graph networkTopology;{"\n"}
-        <span style={{ color: '#ff7eb3' }}>public</span>:{"\n"}
-        {"  "}vector&lt;<span style={{ color: '#6574ff' }}>int</span>&gt; route(int src, int targetBlock) &#123;{"\n"}
-        {"    "}<span style={{ color: '#ff7eb3' }}>return</span> networkTopology.dijkstra(src, targetBlock);{"\n"}
-        {"  "}&#125;{"\n"}
-        &#125;;
-      </code>
-    ),
-  },
-  {
-    title: 'WeatherScope — Weather Information Application',
-    live: 'https://juitawde.github.io/WeatherScope/',
-    github: 'https://github.com/juitawde/WeatherScope',
-    image: '/assets/project_weatherscope.png',
-    desc: 'A responsive weather application that fetches and displays real-time weather data using REST APIs, asynchronous JavaScript, Fetch API, and Promises, with error handling.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'REST API'],
-    metricVal: 'HTML • CSS • JS',
-    metricLabel: 'API Dashboard',
-    code: (
-      <code>
-        <span style={{ color: '#ff7eb3' }}>const</span> API_KEY = <span style={{ color: '#2ed8a7' }}>"65fe9d8bc..."</span>;{"\n"}
-        <span style={{ color: '#ff7eb3' }}>async function</span> fetchWeather(city) &#123;{"\n"}
-        {"  "}<span style={{ color: '#ff7eb3' }}>const</span> res = <span style={{ color: '#ff7eb3' }}>await</span> fetch(`api?q=$&#123;city&#125;&amp;appid=$&#123;API_KEY&#125;`);{"\n"}
-        {"  "}<span style={{ color: '#ff7eb3' }}>const</span> data = <span style={{ color: '#ff7eb3' }}>await</span> res.json();{"\n"}
-        {"  "}updateDashboard(data.main.temp, data.weather[<span style={{ color: '#2ed8a7' }}>0</span>].desc);{"\n"}
-        &#125;
       </code>
     ),
   },
